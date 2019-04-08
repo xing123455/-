@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using 打飞机.Properties;
+using System.Drawing;
+
+namespace 打飞机
+{
+    class BackGround :GameObject
+    {
+        private static Image imgBG = Resources.background;
+
+        public BackGround(int x, int y, int speed)
+            : base(x, y, imgBG.Width, imgBG.Height, speed, 0, Direction.Down)
+        { }
+
+        public override void Draw(Graphics g)
+        {
+            this.Y+=this.Speed;
+            if(this.Y==0)
+            {
+            this.Y=-850;
+            }
+            g.DrawImage(imgBG,this.X,this.Y);
+        }
+        }
+    }
+
+
